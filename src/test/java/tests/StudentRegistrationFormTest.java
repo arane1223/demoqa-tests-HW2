@@ -42,5 +42,6 @@ public class StudentRegistrationFormTest {
         $("#react-select-4-input").setValue("Delhi").pressEnter();
         $("#submit").click();
         $(".modal-content").shouldHave(text("Thanks for submitting the form"));
+        $(".table").shouldHave(text("Alex Terrible"));
     }
 }
