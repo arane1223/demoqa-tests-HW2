@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationFormTest {
 
@@ -16,12 +15,13 @@ public class StudentRegistrationFormTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
     }
 
     @Test
      void fillFormTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('footer').remove();");
+        executeJavaScript("$('#fixedban').remove();");
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Terrible");
         $("#userEmail").setValue("test@test.com");
